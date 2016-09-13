@@ -1,0 +1,2 @@
+# LongView_master
+这好似一个简单的工程,包含了Android开发中遇到的很多小案例
