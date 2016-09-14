@@ -3,7 +3,7 @@ package com.example.liuhailong.longviewsample;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.liuhailong.longviewsample.adaper.view.CirclePictureView;
+import com.example.liuhailong.longviewsample.view.CirclePictureView;
 
 public class CirclePictureActivity extends AppCompatActivity {
 

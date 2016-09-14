@@ -1,4 +1,4 @@
-package com.example.liuhailong.longviewsample.adaper.view;
+package com.example.liuhailong.longviewsample.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;

@@ -1,4 +1,4 @@
-package com.example.liuhailong.longviewsample.adaper.interfaces;
+package com.example.liuhailong.longviewsample.interfaces;
 
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.widget.RecyclerView;

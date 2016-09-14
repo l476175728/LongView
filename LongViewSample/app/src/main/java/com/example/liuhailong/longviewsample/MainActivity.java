@@ -7,8 +7,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.liuhailong.longviewsample.adaper.MainRecyclerAdapter;
-import com.example.liuhailong.longviewsample.adaper.interfaces.OnRecyclerItemClickListener;
-import com.example.liuhailong.longviewsample.adaper.view.CirclePictureView;
+import com.example.liuhailong.longviewsample.interfaces.OnRecyclerItemClickListener;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
                 switch (position){
                     case 0:
                     startActivity(new Intent(MainActivity.this, CirclePictureActivity.class));
+                        break;
+                    case 1:
+                        startActivity(new Intent(MainActivity.this, GuaGuaKaActivity.class));
                         break;
                 }
 
