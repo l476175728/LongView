@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:id="@+id/show_time"
+        android:textSize="20sp"
+        android:text="2016.04.26"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+   <!--<View-->
+    <!--android:background="#666666"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="1dp"/>-->
+    <com.example.liuhailong.longviewsample.view.MyGridView
+        android:layout_marginTop="10dp"
+        android:id="@+id/show_gridview"
+        android:numColumns="3"
+        android:verticalSpacing= "10dp"
+        android:horizontalSpacing="10dp"
+        android:stretchMode="columnWidth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.example.liuhailong.longviewsample.view.MyGridView>
+
+    <!--<com.example.liuhailong.showgallerydemo.CustomRecycleView-->
+       <!--android:id="@+id/show_recycleview"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"></com.example.liuhailong.showgallerydemo.CustomRecycleView>-->
+
+</LinearLayout>

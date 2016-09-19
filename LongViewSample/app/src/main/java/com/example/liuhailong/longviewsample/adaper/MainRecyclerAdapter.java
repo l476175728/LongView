@@ -37,6 +37,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
     @Override
     public void onBindViewHolder(Viewholder holder, int position) {
 
+        holder.itemView.setOnClickListener(null);
         holder.textView.setText(name_List.get(position));
 
     }

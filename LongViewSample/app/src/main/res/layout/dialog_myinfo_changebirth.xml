@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ly_myinfo_changebirth"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+
+    >
+
+    <LinearLayout
+        android:id="@+id/ly_myinfo_changebirth_child"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_dialog_selector"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_share_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dip"
+            android:layout_marginLeft="18dip"
+            android:layout_marginTop="18dip"
+            android:gravity="center_vertical"
+            android:text="选择日期"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+		<TextView
+			android:text="年"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:textSize="15sp"
+			android:layout_weight="1.2"/>
+			<TextView
+				android:text="月"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:textSize="15sp"
+				android:layout_weight="1"/>
+			<TextView
+				android:text="日"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:textSize="15sp"
+				android:layout_weight="1"/>
+			<TextView
+				android:text="时"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:textSize="15sp"
+				android:layout_weight="1"/>
+			<TextView
+				android:text="分"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:textSize="15sp"
+				android:layout_weight="1"/>
+			<TextView
+				android:text="秒"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:textSize="15sp"
+				android:layout_weight="1"/>
+
+
+		</LinearLayout>
+
+
+
+		<LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center_vertical">
+	        <com.example.liuhailong.longviewsample.widget.views.WheelView
+	            android:id="@+id/wv_birth_year"
+	            android:layout_width="0dip"
+	            android:layout_weight="1.2"
+	            android:layout_height="match_parent"
+	            android:layout_gravity="center_vertical"
+	            />
+	        <com.example.liuhailong.longviewsample.widget.views.WheelView
+	            android:id="@+id/wv_birth_month"
+	            android:layout_width="0dip"
+	            android:layout_weight="1"
+	            android:layout_height="match_parent"
+	            android:layout_gravity="center_vertical"
+	            />
+
+			<com.example.liuhailong.longviewsample.widget.views.WheelView
+				android:id="@+id/wv_birth_day"
+				android:layout_width="0dip"
+				android:layout_weight="1"
+				android:layout_height="match_parent"
+				android:layout_gravity="center_vertical"
+				/>
+	        <com.example.liuhailong.longviewsample.widget.views.WheelView
+			android:id="@+id/wv_birth_hour"
+			android:layout_width="0dp"
+			android:layout_weight="1"
+			android:layout_height="match_parent"
+			android:layout_gravity="center_vertical"
+			/>
+			<com.example.liuhailong.longviewsample.widget.views.WheelView
+				android:id="@+id/wv_birth_minute"
+				android:layout_width="0dip"
+				android:layout_weight="1"
+				android:layout_height="match_parent"
+				android:layout_gravity="center_vertical"
+				/>
+			<com.example.liuhailong.longviewsample.widget.views.WheelView
+				android:id="@+id/wv_birth_second"
+				android:layout_width="0dip"
+				android:layout_weight="1"
+				android:layout_height="match_parent"
+				android:layout_gravity="center_vertical"
+				/>
+
+	    </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dip"
+            android:layout_marginBottom="21dip">
+
+                <TextView
+                    android:id="@+id/btn_myinfo_sure"
+                    android:layout_width="77dip"
+                    android:layout_height="33dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dip"
+                    android:text="确认"
+                    android:gravity="center"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/btn_myinfo_cancel"
+                    android:layout_width="77dip"
+                    android:layout_height="33dip"
+                    android:layout_toLeftOf="@+id/btn_myinfo_sure"
+                    android:text="取消"
+                    android:gravity="center"
+                    android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

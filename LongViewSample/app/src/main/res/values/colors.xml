@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="ic_white">#ffffff</color>
     <color name="ic_yellow">#FEDB9C</color>
+    <color name="recycler_back">#cecece</color>
 </resources>

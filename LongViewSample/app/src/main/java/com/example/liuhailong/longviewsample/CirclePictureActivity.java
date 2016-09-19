@@ -5,6 +5,11 @@ import android.os.Bundle;
 
 import com.example.liuhailong.longviewsample.view.CirclePictureView;
 
+/*
+
+只是一个圆形的图片功能,后期会加上图片可以根据收拾截取的功能
+
+*/
 public class CirclePictureActivity extends AppCompatActivity {
 
     private CirclePictureView circlePictureView;
