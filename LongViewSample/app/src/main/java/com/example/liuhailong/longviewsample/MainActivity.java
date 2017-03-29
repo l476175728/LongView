@@ -6,24 +6,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.Display;
 import android.widget.Toast;
 
 import com.example.liuhailong.longviewsample.adaper.MainRecyclerAdapter;
-import com.example.liuhailong.longviewsample.bean.Cities;
 import com.example.liuhailong.longviewsample.bean.Provinces;
 import com.example.liuhailong.longviewsample.customdialog.ChangeBirthDialog;
+import com.example.liuhailong.longviewsample.customdialog.ChooseCityDialog;
 import com.example.liuhailong.longviewsample.interfaces.OnRecyclerItemClickListener;
 import com.example.liuhailong.longviewsample.myutils.PullParse;
 
+
+import org.kymjs.chat.ChatActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mRecyclerView= (RecyclerView) findViewById(R.id.app_recyclerview);
-
         setData();
     }
 
@@ -52,17 +51,18 @@ public class MainActivity extends AppCompatActivity {
         name_list.add("日期选择控件");
         name_list.add("城市三级联动");
         name_list.add("固定头目的listView");
-        name_list.add("支付宝咻一咻");
+        name_list.add("一系列动画效果");
         name_list.add("购物车动画");
-        name_list.add("侧滑删除的ListViw");
-        name_list.add("QQ上可以拖动的小圆点");
-        name_list.add("圆形图片");
-        name_list.add("圆形图片");
-        name_list.add("圆形图片");
-        name_list.add("圆形图片");
-        name_list.add("圆形图片");
-        name_list.add("圆形图片");
-        name_list.add("圆形图片");
+        name_list.add("侧滑删除的RecyclerView");
+        name_list.add("右侧导航的listview");
+        name_list.add("相册");
+        name_list.add("弹幕效果");
+        name_list.add("高德地图");
+        name_list.add("圆形图片的RecyclerView");
+        name_list.add("简单的聊天界面");
+        name_list.add("OpenGL 3D效果");
+        name_list.add("二维码生成和识别");
+        name_list.add("生成验证码");
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         MainRecyclerAdapter mainRecyclerAdapter=new MainRecyclerAdapter(name_list,this);
@@ -90,6 +90,37 @@ public class MainActivity extends AppCompatActivity {
                     case 4:
                         startActivity(new Intent(MainActivity.this, PinnerHeaderActivity.class));
                         break;
+                    case 5:
+                        startActivity(new Intent(MainActivity.this, ManyAnimationActivity.class));
+                        break;
+                    case 6:
+                        startActivity(new Intent(MainActivity.this, ShopCartActivity.class));
+                        break;
+                    case 7:
+                        startActivity(new Intent(MainActivity.this, RecyclerSlidingActivity.class));
+                        break;
+                    case 8:
+                        startActivity(new Intent(MainActivity.this, SlidingSearchActivity.class));
+                        break;
+                    case 9:
+                        startActivity(new Intent(MainActivity.this, GalleryRecyActivity.class));
+                        break;
+                    case 10:
+                        startActivity(new Intent(MainActivity.this, DanMuActivity.class));
+                        break;
+                    case 11:
+                        startActivity(new Intent(MainActivity.this, GaoDeMapActivity.class));
+                        break;
+                    case 12:
+                        startActivity(new Intent(MainActivity.this, CircleRecyclerViewActivity.class));
+                        break;
+                    case 13:
+                        startActivity(new Intent(MainActivity.this, ChatActivity.class));
+                        break;
+
+
+
+
                 }
 
             }
@@ -102,16 +133,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setCityData() {
-        ArrayList<Provinces> province;
-        ArrayList<Cities> citylist;
-        ArrayList<String> pro;
 
-        try {
+            ArrayList<Provinces> province=new ArrayList<>();
             XmlResourceParser xrp=getResources().getXml(R.xml.citys_weather);
+        try {
             province=pullParse.getCountey(xrp);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        ChooseCityDialog chooseCityDialog=new ChooseCityDialog(this,province);
+            chooseCityDialog.show();
+            //设置弹出时的动画
+            chooseCityDialog.setCanceledOnTouchOutside(true);
+            chooseCityDialog.setDialogAnimation();
+            chooseCityDialog.setOnCityChooseListener(new ChooseCityDialog.OnCityChooseListener() {
+                @Override
+                public void onClick(String province, String city, String country) {
+                    Toast.makeText(MainActivity.this,province+"..."+city+"...."+country,Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
 
     }
 

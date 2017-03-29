@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.liuhailong.longviewsample.GaoDeMapActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.amap.api.maps.MapView
+            android:id="@+id/gaode_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></com.amap.api.maps.MapView>
+        <!--<android.support.v7.widget.SearchView-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginLeft="30dp"-->
+            <!--android:layout_marginRight="30dp"-->
+            <!--app:defaultQueryHint="搜索附近"-->
+            <!--android:background="@color/bg_light_gray"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+        <!--</android.support.v7.widget.SearchView>-->
+        <LinearLayout
+            android:id="@+id/map_radiogroup"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+          <Button
+              android:id="@+id/map_nearby"
+              android:layout_width="0dp"
+              android:layout_weight="1"
+              android:text="附近"
+              android:button="@null"
+              android:gravity="center"
+              android:padding="10dp"
+              android:textSize="15sp"
+              android:background="@drawable/map_selector"
+              android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/map_poiline"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="路线"
+                android:button="@null"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:background="@drawable/map_selector"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/map_search"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="搜索"
+                android:background="@drawable/map_selector"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </FrameLayout>
+
+
+
+
+</RelativeLayout>

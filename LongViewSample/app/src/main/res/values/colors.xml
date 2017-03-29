@@ -6,4 +6,15 @@
     <color name="ic_white">#ffffff</color>
     <color name="ic_yellow">#FEDB9C</color>
     <color name="recycler_back">#cecece</color>
+
+    <!--//侧滑的recyclerView-->
+    <color name="swipeoption_green">#36CF8E</color>
+    <color name="swipeoption_blue">#3693D0</color>
+    <color name="swipeoption_purple">#ff1744</color>
+
+    <color name="transWhite">#aafd3939</color>
+    <color name="gray_1">#aa273c51</color>
+    <color name="bg_light_gray">#F1F1F1</color>
+    <color name="bg_white">#ffffff</color>
+    <color name="transparent">#00000000</color>
 </resources>

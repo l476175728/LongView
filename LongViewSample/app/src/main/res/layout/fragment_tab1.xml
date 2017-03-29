@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+    <com.example.liuhailong.longviewsample.widget.RipplesView
+        android:id="@+id/circle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        >
+        <!--默认半径-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="默认半径"
+            />
+
+        <SeekBar
+            android:id="@+id/pb_cirRadius"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="800"
+            />
+        <!--加速度值-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="加速度值"
+            />
+
+        <SeekBar
+            android:id="@+id/pb_acceleration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="20"
+            android:progress="3"
+            />
+
+        <!--最小半径-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="最小半径"
+            />
+
+        <SeekBar
+            android:id="@+id/pb_multipleRadius"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:progress="5"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

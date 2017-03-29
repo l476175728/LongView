@@ -4,6 +4,8 @@ package com.example.liuhailong.longviewsample.widget.views;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.GradientDrawable.Orientation;
@@ -22,61 +24,67 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Numeric wheel view.
+ *
  * 
- * @author Yuri Kanivets
+ * @author liuhailong
  */
 public class WheelView extends View {
 
-	/** Top and bottom shadows colors */
+	//渐变的背景颜色,设置可以让滚轮不在中间的颜色变淡
 	private static final int[] SHADOWS_COLORS = new int[] { 0xeeffffff, 0xeaffffff, 0x33ffffff };
 
-	/** Top and bottom items offset (to hide that) */
+	//滚轮滑动的时候上线的边距
 	private static final int ITEM_OFFSET_PERCENT = 10;
 
-	/** Left and right padding value */
+	//左右padding
 	private static final int PADDING = 10;
 
-	/** Default count of visible items */
-	private static final int DEF_VISIBLE_ITEMS = 5;
+	//可见的item条目数,默认为5
+	private static final int DEF_VISIBLE_ITEMS = 10;
 
-	// Wheel Values
+	// 放在中间的放大的item,默认为第一个
 	private int currentItem = 0;
 
-	// Count of visible items
+	// 可见的item条目数
 	private int visibleItems = DEF_VISIBLE_ITEMS;
 
-	// Item height
-	private int itemHeight = 0;
+	// 每一个item的高度
+	private int itemHeight =0;
 
-	// Center Line
+	// 背景图片
 	private Drawable centerDrawable;
 
-	// Shadows drawables
+	// 上面和下面的阴影部分,颜色变淡的部分
 	private GradientDrawable topShadow;
 	private GradientDrawable bottomShadow;
 
-	// Scrolling
+	// item的滑动事件
 	private WheelScroller scroller;
+
+	//判断当滑动到最后时能够回弹回来
 	private boolean isScrollingPerformed;
+
 	private int scrollingOffset;
 
-	// Cyclic
+	//中间线条的画笔
+	private Paint paint;
+
+	// 是否循环
 	boolean isCyclic = false;
 
-	// Items layout
+	//item的布局
 	private LinearLayout itemsLayout;
 
-	// The number of first item in layout
+	// 第一个可见的item的number
 	private int firstItem;
 
-	// View adapter
+	// 滚轮的适配器
 	private WheelViewAdapter viewAdapter;
 
-	// Recycle
+	// 是否循环的对象
 	private WheelRecycle recycle = new WheelRecycle(this);
 
-	// Listeners
+	// 监听事件
 	private List<OnWheelChangedListener> changingListeners = new LinkedList<OnWheelChangedListener>();
 	private List<OnWheelScrollListener> scrollingListeners = new LinkedList<OnWheelScrollListener>();
 	private List<OnWheelClickedListener> clickingListeners = new LinkedList<OnWheelClickedListener>();
@@ -106,12 +114,16 @@ public class WheelView extends View {
 	}
 
 	/**
-	 * Initializes class data
+	 * 初始化数据
 	 * 
 	 * @param context
 	 *            the context
 	 */
 	private void initData(Context context) {
+		//初始化画笔
+		paint=new Paint(Paint.ANTI_ALIAS_FLAG);
+		paint.setColor(Color.GRAY);
+		paint.setStrokeWidth(2);
 		scroller = new WheelScroller(getContext(), scrollingListener);
 	}
 
@@ -157,7 +169,7 @@ public class WheelView extends View {
 	};
 
 	/**
-	 * Set the the specified scrolling interpolator
+	 *设置回弹的效果
 	 * 
 	 * @param interpolator
 	 *            the interpolator
@@ -167,28 +179,22 @@ public class WheelView extends View {
 	}
 
 	/**
-	 * Gets count of visible items
-	 * 
-	 * @return the count of visible items
+	 *获取所有可见的item
 	 */
 	public int getVisibleItems() {
 		return visibleItems;
 	}
 
 	/**
-	 * Sets the desired count of visible items. Actual amount of visible items
-	 * depends on wheel layout parameters. To apply changes and rebuild view
-	 * call measure().
-	 * 
-	 * @param count
-	 *            the desired count for visible items
+	 *设置哪些item是可见的
+	 *
 	 */
 	public void setVisibleItems(int count) {
 		visibleItems = count;
 	}
 
 	/**
-	 * Gets view adapter
+	 * 获取适配器
 	 * 
 	 * @return the view adapter
 	 */
@@ -196,7 +202,7 @@ public class WheelView extends View {
 		return viewAdapter;
 	}
 
-	// Adapter listener
+	//适配器的监听事件
 	private DataSetObserver dataObserver = new DataSetObserver() {
 		@Override
 		public void onChanged() {
@@ -210,9 +216,7 @@ public class WheelView extends View {
 	};
 
 	/**
-	 * Sets view adapter. Usually new adapters contain different views, so it
-	 * needs to rebuild view by calling measure().
-	 * 
+	 * 设置适配器
 	 * @param viewAdapter
 	 *            the view adapter
 	 */
@@ -292,7 +296,7 @@ public class WheelView extends View {
 	}
 
 	/**
-	 * Notifies listeners about ending scrolling
+	 * 滑动结束的时候的监听事件
 	 */
 	protected void notifyScrollingListenersAboutEnd() {
 		for (OnWheelScrollListener listener : scrollingListeners) {
@@ -301,7 +305,7 @@ public class WheelView extends View {
 	}
 
 	/**
-	 * Adds wheel clicking listener
+	 * 点击事件
 	 * 
 	 * @param listener
 	 *            the listener
@@ -330,16 +334,14 @@ public class WheelView extends View {
 	}
 
 	/**
-	 * Gets current value
-	 * 
-	 * @return the current value
+	 获取当前选择的item
 	 */
 	public int getCurrentItem() {
 		return currentItem;
 	}
 
 	/**
-	 * Sets the current item. Does nothing when index is wrong.
+	 *设置当前的item,东角标越界时不作处理
 	 * 
 	 * @param index
 	 *            the item index
@@ -396,9 +398,7 @@ public class WheelView extends View {
 	}
 
 	/**
-	 * Tests if wheel is cyclic. That means before the 1st item there is shown
-	 * the last one
-	 * 
+	判断这个滚轮是否可以循环的标志
 	 * @return true if wheel is cyclic
 	 */
 	public boolean isCyclic() {
@@ -464,10 +464,12 @@ public class WheelView extends View {
 	 * @return the desired layout height
 	 */
 	private int getDesiredHeight(LinearLayout layout) {
+
 		if (layout != null && layout.getChildAt(0) != null) {
+			//测量获取每一个item的高度
 			itemHeight = layout.getChildAt(0).getMeasuredHeight();
 		}
-
+		//获取没一列的高度
 		int desired = itemHeight * visibleItems - itemHeight * ITEM_OFFSET_PERCENT / 50;
 
 		return Math.max(desired, getSuggestedMinimumHeight());
@@ -482,7 +484,6 @@ public class WheelView extends View {
 		if (itemHeight != 0) {
 			return itemHeight;
 		}
-
 		if (itemsLayout != null && itemsLayout.getChildAt(0) != null) {
 			itemHeight = itemsLayout.getChildAt(0).getHeight();
 			return itemHeight;
@@ -530,6 +531,7 @@ public class WheelView extends View {
 
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
 		int widthMode = MeasureSpec.getMode(widthMeasureSpec);
 		int heightMode = MeasureSpec.getMode(heightMeasureSpec);
 		int widthSize = MeasureSpec.getSize(widthMeasureSpec);
@@ -575,14 +577,16 @@ public class WheelView extends View {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
-
+		//画出来选择控件中间的两条线
+		canvas.drawLine(0,getItemHeight()*2,getWidth(),getItemHeight()*2,paint);
+		canvas.drawLine(0,getItemHeight()*3,getWidth(),getItemHeight()*3,paint);
 		if (viewAdapter != null && viewAdapter.getItemsCount() > 0) {
 			updateView();
 
 			drawItems(canvas);
 			drawCenterRect(canvas);
 		}
-
+		//画阴影部分
 		drawShadows(canvas);
 	}
 

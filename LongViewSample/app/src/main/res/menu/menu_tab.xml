@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.TabActivity">
+    <item
+        android:id="@+id/action_default"
+        android:orderInCategory="100"
+        android:title="@string/action_default"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_oblique"
+        android:orderInCategory="100"
+        android:title="@string/action_oblique"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_bounce"
+        android:orderInCategory="100"
+        android:title="@string/action_bounce"
+        app:showAsAction="never" />
+
+</menu>

@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.TabActivity">
+    <item
+    android:id="@+id/gaode_3dmap"
+    android:orderInCategory="100"
+    android:title="3D地图"
+    app:showAsAction="never" />
+
+    <item
+        android:id="@+id/gaode_2dmap"
+        android:orderInCategory="100"
+        android:title="2D地图"
+        app:showAsAction="never" />
+
+</menu>

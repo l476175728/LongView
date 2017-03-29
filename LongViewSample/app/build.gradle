@@ -6,10 +6,15 @@ android {
 
     defaultConfig {
         applicationId "com.example.liuhailong.longviewsample"
-        minSdkVersion 14
+        minSdkVersion 13
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+
+        //启用renderscript
+        renderscriptTargetApi = 18
+        renderscriptSupportModeEnabled = true
+
     }
     buildTypes {
         release {
@@ -17,16 +22,42 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+
+        // Move the tests to tests/java, tests/res, etc...
+        instrumentTest.setRoot('tests')
+
+        // Move the build types to build-types/<type>
+        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+        // This moves them out of them default location under src/<type>/... which would
+        // conflict with src/ being used by the main source set.
+        // Adding new build types or product flavors should be accompanied
+        // by a similar customization.
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
 }
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.1.1'
     compile 'com.android.support:cardview-v7:24.1.1'
-    compile 'com.android.support:recyclerview-v7:24.1.1'
-    compile 'com.android.support:design:24.1.1'
-    compile files('libs/gson-2.2.4.jar')
-    compile files('libs/Volley.jar')
+    //改变了recyclerView的版本后,同时也要改变design的版本,否则回报No static method setOnApplyWindowInsetsListener的错
+    compile 'com.android.support:recyclerview-v7:24.2.0'
+    compile 'com.android.support:design:24.2.0'
     compile 'com.jiechic.library:xUtils:2.6.14'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile files('libs/commons-httpclient-3.0.1.jar')
+    compile files('libs/commons-codec-1.4.jar')
+    compile files('libs/commons-logging-1.1.1.jar')
+    compile project(path: ':circlerecyclerview')
+    compile 'com.github.bumptech.glide:glide:3.6.1'
+    compile 'jp.wasabeef:glide-transformations:2.0.1'
+    compile project(':chat')
 }

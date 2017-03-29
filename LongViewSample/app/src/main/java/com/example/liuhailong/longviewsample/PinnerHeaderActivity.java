@@ -59,6 +59,7 @@ public class PinnerHeaderActivity extends AppCompatActivity {
     public void getData() {
 
         String url="http://112.33.7.21:8081/Telemedicine/biz/emefile/getFileList.action";
+
         StringRequest stringRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {

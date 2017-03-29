@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+    android:fitsSystemWindows="false"
     tools:context="com.example.liuhailong.longviewsample.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="300dp"
         android:background="#FEDB9C"
         android:theme="@style/AppTheme.AppBarOverlay"
         android:fitsSystemWindows="true">
@@ -40,21 +40,23 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:src="@mipmap/ic_logo"
-        app:backgroundTint="#D73817"
-        android:scaleType="centerCrop"
-        app:borderWidth="0dp"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/app_recyclerview"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/ic_logo"
+        app:backgroundTint="#D73817"
+        android:scaleType="centerCrop"
+        app:borderWidth="0dp"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|end"/>
 
 </android.support.design.widget.CoordinatorLayout>
